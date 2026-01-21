@@ -60,7 +60,7 @@ async def plan_trip(request: TripRequest):
             try:
                 trip_plan = await asyncio.wait_for(
                     asyncio.to_thread(planner.plan_trip, request),
-                    timeout=60,
+                    timeout=120,
                 )
             except TimeoutError:
                 print("⚠️  生成旅行计划超时，改用 MCP 生成简化行程")
