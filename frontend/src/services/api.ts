@@ -21,7 +21,7 @@ if (typeof window !== 'undefined' && window.location.protocol === 'https:') {
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 120000, // 2分钟超时
+  timeout: 180000, // 3分钟超时（兼容 Render 冷启动与外部工具调用延迟）
   headers: {
     'Content-Type': 'application/json'
   }

@@ -240,10 +240,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, watch } from 'vue'
+import { ref, reactive, watch, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { message } from 'ant-design-vue'
-import { generateTripPlan } from '@/services/api'
+import { generateTripPlan, healthCheck } from '@/services/api'
 import type { TripFormData, SensorContext } from '@/types'
 import type { Dayjs } from 'dayjs'
 
@@ -274,6 +274,16 @@ const sensorStatus = reactive({
 })
 const sensorLoading = reactive({
   location: false
+})
+
+onMounted(async () => {
+  // Render 免费实例可能会休眠，首次请求会有 50s 左右冷启动延迟。
+  // 这里静默预热一次后端，减少用户点击“开始规划”后的超时概率。
+  try {
+    await healthCheck()
+  } catch {
+    // ignore
+  }
 })
 
 function touchCapturedAt() {
