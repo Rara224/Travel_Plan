@@ -1,0 +1,18 @@
+{
+  "name": "智能旅行助手",
+  "short_name": "旅行助手",
+  "description": "基于AI与设备传感器信息的旅行规划助手",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

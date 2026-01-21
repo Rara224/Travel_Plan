@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+backend/venv/
+
+# Env files
+.env
+.env.*
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Builds
+frontend/dist/
+backend/dist/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# PWA dev artifacts
+frontend/dev-dist/
